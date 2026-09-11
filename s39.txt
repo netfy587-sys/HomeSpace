@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Space Exploration — The Complete Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0e1024;
+    --panel:#181a34;
+    --line1:#3a3f74;
+    --line2:#565c9e;
+    --gold:#e8b34c;
+    --chalk:#eef0fb;
+    --chalk-dim:#a7abcf;
+    --max:700px;
+    --wide:1080px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--ink);color:var(--chalk);font-family:"Source Serif 4",Georgia,serif;line-height:1.65;font-size:18px;}
+  h1,h2,h3,.display{font-family:"Big Shoulders Display",sans-serif;text-transform:uppercase;letter-spacing:0.01em;color:var(--chalk);margin:0;}
+  a{color:var(--gold);}
+  a:focus-visible{outline:3px solid var(--gold);outline-offset:3px;}
+  img,svg{max-width:100%;display:block;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  .courtnav{position:sticky;top:0;z-index:50;background:rgba(14,16,36,0.92);backdrop-filter:blur(6px);border-bottom:1px solid rgba(238,240,251,0.12);}
+  .courtnav-inner{max-width:var(--wide);margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:22px;overflow-x:auto;}
+  .courtnav-mark{display:flex;align-items:center;gap:8px;font-family:"Big Shoulders Display",sans-serif;font-weight:700;font-size:1.05rem;color:var(--chalk);white-space:nowrap;}
+  .chapter-link{color:var(--chalk-dim);text-decoration:none;font-size:0.82rem;letter-spacing:0.03em;text-transform:uppercase;font-family:"Big Shoulders Display",sans-serif;white-space:nowrap;border-bottom:2px solid transparent;padding-bottom:2px;}
+  .chapter-link:hover{color:var(--gold);border-color:var(--gold);}
+
+  .hero{position:relative;padding:72px 24px 40px;overflow:hidden;background:radial-gradient(120% 90% at 50% 0%, #201f45 0%, var(--ink) 62%);}
+  .hero-inner{max-width:var(--wide);margin:0 auto;display:grid;grid-template-columns:1.1fr 0.9fr;gap:36px;align-items:center;}
+  .hero h1{font-size:clamp(3rem,8vw,5.6rem);line-height:0.88;font-weight:900;}
+  .hero h1 span{display:block;color:var(--gold);}
+  .hero-tag{margin-top:18px;max-width:46ch;color:var(--chalk-dim);font-size:1.08rem;}
+
+  .scoreboard{background:var(--panel);border-top:1px solid rgba(238,240,251,0.1);border-bottom:1px solid rgba(238,240,251,0.1);}
+  .scoreboard-inner{max-width:var(--wide);margin:0 auto;padding:26px 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .stat-num{font-family:"Big Shoulders Display",sans-serif;font-weight:900;font-size:2.2rem;color:var(--gold);line-height:1;}
+  .stat-label{font-size:0.76rem;color:var(--chalk-dim);text-transform:uppercase;letter-spacing:0.05em;margin-top:6px;font-family:"Big Shoulders Display",sans-serif;}
+
+  .divider{display:flex;align-items:center;gap:14px;max-width:var(--wide);margin:0 auto;padding:56px 24px 0;}
+  .divider .line{flex:1;height:0;border-top:2px dashed rgba(238,240,251,0.2);}
+  .divider svg{width:18px;height:18px;flex:0 0 auto;}
+
+  .chapter{padding:34px 24px 10px;}
+  .chapter-head{max-width:var(--max);margin:0 auto 22px;display:flex;align-items:baseline;gap:16px;}
+  .chapter-num{font-family:"Big Shoulders Display",sans-serif;font-weight:900;font-size:2.5rem;color:var(--line2);line-height:1;}
+  .chapter-head h2{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;}
+  .chapter p{max-width:var(--max);margin:0 auto 18px;}
+  .chapter p.lede{font-size:1.1rem;}
+  .chapter ul{max-width:var(--max);margin:0 auto 20px;padding-left:22px;}
+  .chapter li{margin-bottom:8px;}
+  .chapter figure{max-width:var(--max);margin:28px auto;}
+  .chapter figcaption{font-size:0.85rem;color:var(--chalk-dim);margin-top:10px;font-family:"Big Shoulders Display",sans-serif;}
+
+  .timeline{max-width:var(--max);margin:30px auto;border-left:2px solid var(--line2);padding-left:24px;}
+  .tl-item{margin-bottom:26px;position:relative;}
+  .tl-item::before{content:"";position:absolute;left:-30px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--gold);}
+  .tl-year{font-family:"Big Shoulders Display",sans-serif;font-weight:700;color:var(--gold);font-size:1.2rem;}
+  .tl-item p{margin:4px 0 0;}
+
+  .skill-grid{max-width:var(--max);margin:26px auto;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .skill-card{background:var(--panel);border:1px solid rgba(238,240,251,0.1);padding:18px;}
+  .skill-card svg{width:34px;height:34px;margin-bottom:10px;}
+  .skill-card h3{font-size:1.1rem;font-weight:700;margin-bottom:6px;}
+  .skill-card p{margin:0;font-size:0.96rem;color:var(--chalk-dim);max-width:none;}
+
+  .callout{max-width:var(--max);margin:26px auto;padding:20px 22px;background:var(--panel);border-left:4px solid var(--gold);}
+  .callout p{margin:0;max-width:none;}
+
+  .glossary{max-width:var(--wide);margin:24px auto;display:grid;grid-template-columns:1fr 1fr;gap:0 40px;}
+  .gloss-item{padding:14px 0;border-bottom:1px solid rgba(238,240,251,0.1);}
+  .gloss-item dt{font-family:"Big Shoulders Display",sans-serif;font-weight:700;color:var(--gold);font-size:1rem;}
+  .gloss-item dd{margin:4px 0 0;color:var(--chalk-dim);font-size:0.94rem;}
+
+  footer{margin-top:60px;padding:40px 24px 60px;border-top:1px solid rgba(238,240,251,0.12);background:#12142c;}
+  footer .wrap{color:var(--chalk-dim);font-size:0.9rem;}
+
+  @media(max-width:760px){
+    .hero-inner{grid-template-columns:1fr;}
+    .scoreboard-inner{grid-template-columns:1fr 1fr;}
+    .skill-grid{grid-template-columns:1fr;}
+    .glossary{grid-template-columns:1fr;}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<nav class="courtnav">
+  <div class="courtnav-inner">
+    <span class="courtnav-mark">✦ Space</span>
+    <a class="chapter-link" href="#history">History</a>
+    <a class="chapter-link" href="#system">Solar System</a>
+    <a class="chapter-link" href="#missions">Missions</a>
+    <a class="chapter-link" href="#life">Living in Space</a>
+    <a class="chapter-link" href="#glossary">Glossary</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <h1>Space<span>Exploration</span></h1>
+      <p class="hero-tag">A complete, plain-language reference on how humans left the ground, what lies in our solar system, and how we explore the universe beyond it.</p>
+    </div>
+    <svg viewBox="0 0 360 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of planets and stars">
+      <rect width="360" height="300" fill="none"/>
+      <circle cx="40" cy="40" r="1.6" fill="#eef0fb"/>
+      <circle cx="90" cy="20" r="1.2" fill="#eef0fb"/>
+      <circle cx="300" cy="30" r="1.6" fill="#eef0fb"/>
+      <circle cx="330" cy="70" r="1.2" fill="#eef0fb"/>
+      <circle cx="20" cy="140" r="1.2" fill="#eef0fb"/>
+      <circle cx="250" cy="240" r="1.6" fill="#eef0fb"/>
+      <circle cx="180" cy="150" r="55" fill="#565c9e"/>
+      <circle cx="160" cy="130" r="10" fill="#3a3f74" opacity="0.6"/>
+      <ellipse cx="180" cy="150" rx="90" ry="18" fill="none" stroke="#e8b34c" stroke-width="2.4"/>
+      <circle cx="70" cy="230" r="24" fill="#e8b34c"/>
+      <circle cx="280" cy="90" r="14" fill="#eef0fb" opacity="0.85"/>
+    </svg>
+  </div>
+</header>
+
+<div class="scoreboard">
+  <div class="scoreboard-inner">
+    <div><div class="stat-num">1957</div><div class="stat-label">First satellite launched</div></div>
+    <div><div class="stat-num">1969</div><div class="stat-label">First crewed Moon landing</div></div>
+    <div><div class="stat-num">8</div><div class="stat-label">Planets in our solar system</div></div>
+    <div><div class="stat-num">4.5B</div><div class="stat-label">Years old, the solar system</div></div>
+  </div>
+</div>
+
+<div class="divider" aria-hidden="true"><div class="line"></div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="#565c9e" stroke-width="1.6"/></svg><div class="line"></div></div>
+
+<section class="chapter" id="history">
+  <div class="chapter-head"><span class="chapter-num">01</span><h2>How space exploration began</h2></div>
+  <p class="lede">The space age started as a race between two nations, and within twelve years it had put a human being on another world.</p>
+  <p>The Soviet Union launched the first artificial satellite, Sputnik 1, in October 1957, followed by the first human in orbit, Yuri Gagarin, in April 1961. The United States answered with the Apollo program, which landed Neil Armstrong and Buzz Aldrin on the Moon in July 1969 — still the only time humans have set foot on another world.</p>
+  <figure>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-year">1957</div><p>Sputnik 1 becomes the first artificial satellite to orbit Earth.</p></div>
+      <div class="tl-item"><div class="tl-year">1961</div><p>Yuri Gagarin becomes the first human to orbit the Earth.</p></div>
+      <div class="tl-item"><div class="tl-year">1969</div><p>Apollo 11 lands the first humans on the Moon.</p></div>
+      <div class="tl-item"><div class="tl-year">1998</div><p>Construction begins on the International Space Station.</p></div>
+      <div class="tl-item"><div class="tl-year">2021</div><p>The James Webb Space Telescope is prepared for launch, later capturing light from some of the earliest galaxies.</p></div>
+    </div>
+    <figcaption>Key milestones in the history of spaceflight.</figcaption>
+  </figure>
+</section>
+
+<div class="divider" aria-hidden="true"><div class="line"></div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="#565c9e" stroke-width="1.6"/></svg><div class="line"></div></div>
+
+<section class="chapter" id="system">
+  <div class="chapter-head"><span class="chapter-num">02</span><h2>Our solar system</h2></div>
+  <p class="lede">The Sun holds eight planets in orbit, along with countless moons, asteroids, and comets.</p>
+  <p>Mercury, Venus, Earth, and Mars are rocky "terrestrial" planets close to the Sun. Jupiter, Saturn, Uranus, and Neptune are much larger gas and ice giants farther out, several of them circled by rings made of ice and rock. Beyond Neptune lies the Kuiper Belt, home to dwarf planets like Pluto.</p>
+  <ul>
+    <li><strong>Mercury and Venus:</strong> The two planets closer to the Sun than Earth; Venus is the hottest planet due to a thick, heat-trapping atmosphere.</li>
+    <li><strong>Earth and Mars:</strong> Earth is the only known planet with life; Mars is the most explored planet by robotic rovers.</li>
+    <li><strong>Jupiter and Saturn:</strong> The two largest planets, both mostly made of hydrogen and helium gas.</li>
+    <li><strong>Uranus and Neptune:</strong> Ice giants with atmospheres of hydrogen, helium, and methane, which gives them a blue tint.</li>
+  </ul>
+</section>
+
+<div class="divider" aria-hidden="true"><div class="line"></div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="#565c9e" stroke-width="1.6"/></svg><div class="line"></div></div>
+
+<section class="chapter" id="missions">
+  <div class="chapter-head"><span class="chapter-num">03</span><h2>How we explore today</h2></div>
+  <p class="lede">Modern exploration relies on robots, telescopes, and orbiting laboratories as much as it relies on astronauts.</p>
+  <div class="skill-grid">
+    <div class="skill-card"><svg viewBox="0 0 40 40"><rect x="12" y="18" width="16" height="10" fill="none" stroke="#e8b34c" stroke-width="2"/><circle cx="20" cy="14" r="5" fill="none" stroke="#e8b34c" stroke-width="2"/><path d="M12 22h-6M28 22h6" stroke="#e8b34c" stroke-width="2"/></svg><h3>Rovers</h3><p>Robotic vehicles like Perseverance study the surface and soil of Mars, searching for signs of past microbial life.</p></div>
+    <div class="skill-card"><svg viewBox="0 0 40 40"><rect x="14" y="6" width="12" height="24" fill="none" stroke="#e8b34c" stroke-width="2"/><path d="M14 12l-8 4v4l8-2M26 12l8 4v4l-8-2" stroke="#e8b34c" stroke-width="2" fill="none"/></svg><h3>Space telescopes</h3><p>Instruments like the James Webb Space Telescope capture light from galaxies billions of years old, revealing the early universe.</p></div>
+    <div class="skill-card"><svg viewBox="0 0 40 40"><rect x="10" y="14" width="20" height="12" fill="none" stroke="#e8b34c" stroke-width="2"/><path d="M10 20h-6M30 20h6" stroke="#e8b34c" stroke-width="2"/><circle cx="20" cy="20" r="2" fill="#e8b34c"/></svg><h3>Space stations</h3><p>The International Space Station has hosted astronauts continuously since 2000, running experiments in microgravity.</p></div>
+    <div class="skill-card"><svg viewBox="0 0 40 40"><path d="M20 4l4 10 10 1-8 7 3 10-9-6-9 6 3-10-8-7 10-1z" fill="none" stroke="#e8b34c" stroke-width="1.8"/></svg><h3>Private spaceflight</h3><p>Commercial companies now launch satellites, cargo, and crews alongside national space agencies.</p></div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"><div class="line"></div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="#565c9e" stroke-width="1.6"/></svg><div class="line"></div></div>
+
+<section class="chapter" id="life">
+  <div class="chapter-head"><span class="chapter-num">04</span><h2>Living and working in space</h2></div>
+  <p class="lede">Space is hostile to human biology, so life on board a station or spacecraft is carefully engineered.</p>
+  <p>Astronauts float in microgravity, which causes muscles and bones to weaken over time without daily exercise. Spacecraft recycle air and water, and food is specially packaged to survive without refrigeration. Radiation shielding, temperature control, and communication delays are all challenges that grow harder the farther a mission travels from Earth.</p>
+  <div class="callout"><p>Space exploration has produced technology used on Earth every day — including satellite communication, GPS navigation, and improved weather forecasting.</p></div>
+</section>
+
+<div class="divider" aria-hidden="true"><div class="line"></div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="#565c9e" stroke-width="1.6"/></svg><div class="line"></div></div>
+
+<section class="chapter" id="glossary">
+  <div class="chapter-head"><span class="chapter-num">05</span><h2>Glossary of space terms</h2></div>
+  <dl class="glossary">
+    <div class="gloss-item"><dt>Orbit</dt><dd>The curved path an object follows around a planet or star due to gravity.</dd></div>
+    <div class="gloss-item"><dt>Light-year</dt><dd>The distance light travels in one year, used to measure distances between stars.</dd></div>
+    <div class="gloss-item"><dt>Gravity assist</dt><dd>Using a planet's gravity to speed up or redirect a spacecraft without using fuel.</dd></div>
+    <div class="gloss-item"><dt>Exoplanet</dt><dd>A planet that orbits a star outside our own solar system.</dd></div>
+    <div class="gloss-item"><dt>Microgravity</dt><dd>The near-weightless condition experienced in orbit.</dd></div>
+    <div class="gloss-item"><dt>Payload</dt><dd>The cargo, instruments, or crew a rocket carries into space.</dd></div>
+  </dl>
+</section>
+
+<footer><div class="wrap"><p>A general, plain-language reference on space exploration, our solar system, and how humans study the universe.</p></div></footer>
+</body>
+</html>
